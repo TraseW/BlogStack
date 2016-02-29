@@ -1,4 +1,5 @@
 from blogengine import pageLocation
+from example import main
 import pickle, os, ast
 
 def createPage(info):
@@ -16,8 +17,3 @@ def getPage(name):
         out = pickle.load(f)
         print(out[name]['content'][1]['src'])
         return out[name]
-
-
-
-
-
