@@ -1,4 +1,4 @@
-
+import json
 main = \
     {
     'page':
@@ -26,19 +26,13 @@ main = \
 
             ],
             'meta':
-            [
                 {
-                    'title':'blurb',
-                    'content':'This is an API'
-                },
-                {
-                    'title':'title',
-                    'content':'EmuAPI'
+                    'blurb': 'stuff and things',
+                    'author': 'trase'
                 }
-            ]
         }
     }
-
+print(json.dumps(main))
 """
 /admin/panel
 """

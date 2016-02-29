@@ -2,7 +2,7 @@
 
 from flask import Flask, render_template, url_for, request, redirect, flash
 from flask import session
-import os, datetime
+import os, datetime, json
 
 
 
@@ -43,13 +43,30 @@ def hello_world():
 @app.route('/pages/<name>')
 def getPage(name):
     content = template.getPage(name)
-    return render_template('post.html', post=content)
+    return render_template('post.html', post=content[name])
+
+@app.route('/api/pages/<name>/meta')
+def apiGetPage(name):
+    content = template.getPage(name)
+    print(content)
+    return json.dumps(content)
+
+@app.route('/api/pages/<name>/meta/<tag>')
+def apiGetTag(name, tag):
+    page = template.getPage(name)[name]
+    meta = page['meta']
+    out = meta[tag]
+    return out
+
+@app.route('/api/pages')
+def apiGetPages():
+
+    return  json.dumps(os.listdir(pageLocation))
 
 
 @app.route('/admin/create', methods=['POST', 'GET'])
 def createPage():
     if (request.method == 'POST'):
-        print(dict(request.form)['page'])
         template.createPage(request.form.getlist('page')[0])
         return redirect(url_for('adminLogin'))
     else:
