@@ -16,7 +16,7 @@ var pageItems = new Vue({
     addItem: function() {
       this.items.push({
         open: false,
-        tag: '',
+        tag: 'test',
         class: '',
         id: '',
         content: ''
