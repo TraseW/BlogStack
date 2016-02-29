@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='panel.css') }}">
+    <script src="{{ url_for('static', filename="javascript/jquery.min.js") }}"></script>
+    <script src="{{ url_for('static', filename="javascript/panel.js") }}"></script>
+    <script src="http://cdn.jsdelivr.net/vue/1.0.16/vue.min.js"></script>
+</head>
+<body>
+
+    <main>
+
+        <article class="pageDisplay" id="elements">
+            <section v-for="item in pageItems">
+                <div class="type" v-on:click="dropdown">
+                    {% raw %}
+                        {{ item.title }}
+                    {% endraw %}
+                </div>
+                <div class="input" contenteditable="true">
+                    {% raw %}
+                        {{ item.content }}
+                    {% endraw %}
+                </div>
+            </section>
+
+
+
+        </article>
+
+        <form action="admin" method="post" id="plaintext">
+            <textarea name="page"></textarea>
+            <input type="submit" value="submit">
+        </form>
+
+    </main>
+
+</body>
+</html>

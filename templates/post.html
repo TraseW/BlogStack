@@ -1,0 +1,14 @@
+{% extends 'nav.html' %}
+
+{% block content %}
+
+    {% for block in post['content'] %}
+        {% if block['tag'] != 'img' %}
+        <{{ block['tag'] }} class="{{ block['class'] }}" id="{{ block['id'] }}">
+            {{ block['content'] }}
+        </{{ block['tag'] }}>
+        {% else %}
+            <{{ block['tag'] }} class="{{ block['class'] }}" id="{{ block['id'] }}" src="{{ block['src']|safe }}">
+        {% endif %}
+    {% endfor %}
+{% endblock %}
