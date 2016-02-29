@@ -1,6 +1,4 @@
-from bs4 import BeautifulSoup
 from blogengine import pageLocation
-from example import main
 import pickle, os, ast
 
 def createPage(info):
