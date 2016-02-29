@@ -1,41 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Admin</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='panel.css') }}">
-    <script src="{{ url_for('static', filename="javascript/jquery.min.js") }}"></script>
-    <script src="{{ url_for('static', filename="javascript/panel.js") }}"></script>
-    <script src="http://cdn.jsdelivr.net/vue/1.0.16/vue.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Admin</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='panel.css') }}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700|Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+  <script src="{{ url_for('static', filename="javascript/jquery.min.js") }}"></script>
+  <script src="http://cdn.jsdelivr.net/vue/1.0.16/vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.autosize/3.0.15/autosize.min.js"></script>
 </head>
 <body>
 
-    <main>
+  <main>
 
-        <article class="pageDisplay" id="elements">
-            <section v-for="item in pageItems">
-                <div class="type" v-on:click="dropdown">
-                    {% raw %}
-                        {{ item.title }}
-                    {% endraw %}
-                </div>
-                <div class="input" contenteditable="true">
-                    {% raw %}
-                        {{ item.content }}
-                    {% endraw %}
-                </div>
-            </section>
+    {% raw %}
+    <article id="elements">
+
+      <h1>Page Elements</h1>
+
+      <section v-bind:class="{'active': item.open}" v-for="item in items">
+        <header>
+          <button class="dropdown" v-on:click="dropdown($index)"><i class="fa fa-lg fa-chevron-down"></i></button>
+          <div>
+            <input v-model="item.tag" type="text" placeholder="Tag">
+            <input v-model="item.class" type="text" placeholder="Class">
+            <input v-model="item.id" type="text" placeholder="ID">
+          </div>
+          <button class="remove" v-on:click="removeItem($index)"><i class="fa fa-lg fa-times"></i></button>
+        </header>
+        <textarea v-show="item.open" v-model="item.content"></textarea>
+      </section>
 
 
+      <div class="functions">
+        <button v-on:click="addItem">Add Item</button>
+        <button class="highlight" v-on:click="addItem">Submit</button>
+      </div>
 
-        </article>
+    </article>
+    {% endraw %}
 
-        <form action="admin" method="post" id="plaintext">
-            <textarea name="page"></textarea>
-            <input type="submit" value="submit">
-        </form>
+  </main>
 
-    </main>
+  <script src="{{ url_for('static', filename="javascript/panel.js") }}"></script>
 
 </body>
 </html>

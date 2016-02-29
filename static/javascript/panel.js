@@ -1,36 +1,36 @@
-/**
- * Created by Trase on 2/27/2016.
- */
+var items = [];
 
+var pageItems = new Vue({
 
+  el: '#elements',
 
+  data: {
+    items: items,
+  },
 
+  created: function() {
+    this.addItem();
+  },
 
-
-
-
-
-
-$(document).ready(function() {
-
-
-    new Vue({
-        el: '#elements',
-        data: {
-            pageItems: [
-                {title: 'title', content: 'content'},
-                {title: 'testes', content: 'testers'}
-            ]
-
-        },
-        methods: {
-            dropdown: function (event) {
-                this.next().focus();
-            }
-        }
-
-
-    });
-
+  methods: {
+    addItem: function() {
+      this.items.push({
+        open: false,
+        tag: '',
+        class: '',
+        id: '',
+        content: ''
+      });
+    },
+    removeItem: function(index) {
+      this.items.splice(index, 1);
+    },
+    dropdown: function(index) {
+      this.items[index].open = !this.items[index].open;
+      if (this.items[index].open) {
+        autosize($('textarea'));
+      }
+    }
+  }
 
 });

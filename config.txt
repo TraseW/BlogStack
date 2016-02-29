@@ -1,1 +1,1 @@
-{'adminName': 'admin', 'adminHash': b'$2b$12$OMxh3W.IhMHiSnyDrVmpc.6qrmPAUG28ATcOumzdAJLFEHUpuDEgq'}
+{'adminName': 'doomshroom9001', 'adminHash': b'$2b$12$ThZDS6cbnbe8C3imHkYsZeJbzuQBNR5JgAAtm2DkjUM89QHeNrrZy'}
