@@ -5,7 +5,9 @@ import pickle, os, ast
 def createPage(info):
     pageInfo = ast.literal_eval(info)
     path = os.path.join(pageLocation, list(pageInfo.keys())[0])
-    print(path)
+    checkPath = os.path.abspath(path)
+    if ".." in path:
+        return 'Failed: Tried to write to incorrect folder'
     #path = list(pageInfo.keys())[0] + '.txt'
     with open(path, 'wb') as f:
         pickle.dump(pageInfo, f)

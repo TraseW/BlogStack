@@ -1,7 +1,7 @@
 import json
 main = \
     {
-    'page':
+    'pageName':
         {   'content':
             [
                 {
