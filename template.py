@@ -7,10 +7,11 @@ def createPage(info):
     path = os.path.join(pageLocation, list(pageInfo.keys())[0])
     checkPath = os.path.abspath(path)
     if ".." in path:
-        return 'Failed: Tried to write to incorrect folder'
+        return 'Not Allowed'
     #path = list(pageInfo.keys())[0] + '.txt'
     with open(path, 'wb') as f:
         pickle.dump(pageInfo, f)
+    return 'success'
 
 def getPage(name):
     path = os.path.join(pageLocation, name)
