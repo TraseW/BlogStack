@@ -43,7 +43,9 @@ def hello_world():
 @app.route('/pages/<name>')
 def getPage(name):
     content = template.getPage(name)
-    return render_template('post.html', post=content[name])
+    print('here')
+    print(content['content'])
+    return render_template('post.html', post=content['content'])
 
 @app.route('/api/pages/<name>/meta')
 def apiGetPage(name):
@@ -67,10 +69,11 @@ def apiGetPages():
 @app.route('/admin/create', methods=['POST', 'GET'])
 def createPage():
     if (request.method == 'POST'):
-        r = dict(request.form)
+        r = list(dict(request.form).keys())[0]
+        pageDict = json.loads(str(r))
         print('test')
-        print(r)
-        checkPage = template.createPage(r['page'])
+        print(pageDict)
+        checkPage = template.createPage(pageDict)
         if checkPage != 'success':
             return checkPage
         return redirect(url_for('adminLogin'))

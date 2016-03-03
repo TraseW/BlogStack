@@ -35,7 +35,7 @@ var pageItems = new Vue({
     },
     submit: function() {
       console.log('test');
-      $.post('/admin/create', {'page': pageItems.$data});
+      $.post('/admin/create', JSON.stringify(this.$data));
     }
   }
 

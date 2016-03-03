@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    {% for block in post['content'] %}
+    {% for block in post %}
         {% if block['tag'] != 'img' %}
         <{{ block['tag'] }} class="{{ block['class'] }}" id="{{ block['id'] }}">
             {{ block['content'] }}
