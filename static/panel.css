@@ -22,11 +22,17 @@ main {
   max-width: 960px;
   margin: 0 auto;
   padding: 20px; }
-  main h1 {
+  main #title {
+    border: none;
     border-bottom: 2px solid #24C7C9;
     color: #444;
     line-height: 1.6em;
-    letter-spacing: 2px; }
+    letter-spacing: 2px;
+    background: none;
+    padding: 5px 0px;
+    width: 100%;
+    outline: none;
+    font-size: 1.3rem; }
 
 #elements input, #elements button {
   margin-bottom: 20px; }
@@ -84,6 +90,10 @@ main {
       outline: none; }
 #elements .functions {
   float: right; }
+  #elements .functions form {
+    display: inline-block; }
+  #elements .functions form textarea {
+    display: none; }
   #elements .functions button {
     transition: box-shadow 0.2s ease-in-out;
     padding: 16px 22px;

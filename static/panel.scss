@@ -28,12 +28,20 @@ main {
   margin: 0 auto;
   padding: 20px;
 
-  h1 {
+  #title {
+    border: none;
     border-bottom: 2px solid $highlight;
     color: #444;
     line-height: 1.6em;
     letter-spacing: 2px;
+    background: none;
+    padding: 5px 0px;
+    width: 100%;
+    outline: none;
+    font-size: 1.3rem;
   }
+
+
 
 }
 
@@ -127,6 +135,14 @@ main {
 
   .functions {
     float: right;
+
+    form {
+      display: inline-block;
+    }
+
+    form textarea {
+      display: none;
+    }
 
     button {
       transition: box-shadow 0.2s ease-in-out;

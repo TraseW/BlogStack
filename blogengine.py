@@ -67,7 +67,10 @@ def apiGetPages():
 @app.route('/admin/create', methods=['POST', 'GET'])
 def createPage():
     if (request.method == 'POST'):
-        checkPage = template.createPage(request.form.getlist('page')[0])
+        r = dict(request.form)
+        print('test')
+        print(r)
+        checkPage = template.createPage(r['page'])
         if checkPage != 'success':
             return checkPage
         return redirect(url_for('adminLogin'))

@@ -32,6 +32,10 @@ var pageItems = new Vue({
       if (this.content[index].open) {
         autosize($('textarea'));
       }
+    },
+    submit: function() {
+      console.log('test');
+      $.post('/admin/create', {'page': pageItems.$data});
     }
   }
 
