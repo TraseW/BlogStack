@@ -1,11 +1,13 @@
-var items = [];
+
 
 var pageItems = new Vue({
 
   el: '#elements',
 
   data: {
-    items: items,
+    pageName: '',
+    content: [],
+    meta: [],
   },
 
   created: function() {
@@ -14,7 +16,7 @@ var pageItems = new Vue({
 
   methods: {
     addItem: function() {
-      this.items.push({
+      this.content.push({
         open: false,
         tag: '',
         class: '',
@@ -23,14 +25,16 @@ var pageItems = new Vue({
       });
     },
     removeItem: function(index) {
-      this.items.splice(index, 1);
+      this.content.splice(index, 1);
     },
     dropdown: function(index) {
-      this.items[index].open = !this.items[index].open;
-      if (this.items[index].open) {
+      this.content[index].open = !this.content[index].open;
+      if (this.content[index].open) {
         autosize($('textarea'));
       }
     }
   }
 
 });
+
+
