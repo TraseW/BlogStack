@@ -15,7 +15,7 @@
 <main>
 
     {% raw %}
-    <article id="elements">
+    <article id="elements" class="clear">
 
 
         <input id="title" v-model="pageName" type="text" placeholder="Page Name">
@@ -36,11 +36,30 @@
 
         <div class="functions">
             <button v-on:click="addItem">Add Item</button>
+        </div>
+    </article>
+
+    <article id="meta" class="clear">
+        <section v-bind:class="{'active': item.open}" v-for="item in meta">
+            <header>
+                <button class="dropdown" v-on:click="dropdownMeta($index)"><i class="fa fa-lg fa-chevron-down"></i></button>
+                <div>
+                    <input v-model="item.title" type="text" placeholder="Meta Title">
+
+                </div>
+                <button class="remove" v-on:click="removeMeta($index)"><i class="fa fa-lg fa-times"></i></button>
+            </header>
+            <textarea v-show="item.open" v-model="item.value"></textarea>
+        </section>
+
+        <div class="functions">
+            <button v-on:click="addMeta">Add Item</button>
             <button v-on:click="submit" class="highlight">Submit</button>
 
         </div>
-        <pre>{{ $data | json }}</pre>
     </article>
+
+
     {% endraw %}
 
 </main>

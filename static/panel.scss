@@ -45,7 +45,17 @@ main {
 
 }
 
-#elements {
+.clear:before,
+.clear:after {
+    content: "";
+    display: table;
+}
+.clear:after {
+    clear: both;
+}
+
+
+article {
   input, button {
     margin-bottom: 20px;
   }

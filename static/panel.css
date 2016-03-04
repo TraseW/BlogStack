@@ -34,16 +34,24 @@ main {
     outline: none;
     font-size: 1.3rem; }
 
-#elements input, #elements button {
+.clear:before,
+.clear:after {
+  content: "";
+  display: table; }
+
+.clear:after {
+  clear: both; }
+
+article input, article button {
   margin-bottom: 20px; }
-#elements section {
+article section {
   border-left: 0px solid #24C7C9;
   transition: border .2s ease-in-out;
   border-top: none;
   border-radius: 2px;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
   margin-bottom: 30px; }
-  #elements section header {
+  article section header {
     transition: all 0.2s ease-in-out;
     background: #fff;
     padding: 20px;
@@ -53,48 +61,48 @@ main {
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center; }
-    #elements section header div {
+    article section header div {
       flex-grow: 1;
       margin-left: 10px; }
-    #elements section header input, #elements section header button {
+    article section header input, article section header button {
       margin: 0;
       background: none;
       border: none;
       outline: none; }
-    #elements section header input {
+    article section header input {
       font-size: 0.9rem;
       background: #eee;
       padding: 5px;
       border-radius: 2px;
       margin-left: 10px; }
-    #elements section header button {
+    article section header button {
       color: #aaa;
       cursor: pointer; }
-    #elements section header .dropdown {
+    article section header .dropdown {
       transition: all .2s ease-in-out;
       color: #24C7C9; }
-  #elements section.active {
+  article section.active {
     border-left: 5px solid #24C7C9; }
-    #elements section.active .dropdown {
+    article section.active .dropdown {
       transform: scaleY(-1); }
-  #elements section button.remove {
+  article section button.remove {
     float: right; }
-  #elements section textarea {
+  article section textarea {
     display: block;
     padding: 20px;
     width: 100%;
     resize: none;
     border: none;
     border-top: 1px solid #ccc; }
-    #elements section textarea:focus {
+    article section textarea:focus {
       outline: none; }
-#elements .functions {
+article .functions {
   float: right; }
-  #elements .functions form {
+  article .functions form {
     display: inline-block; }
-  #elements .functions form textarea {
+  article .functions form textarea {
     display: none; }
-  #elements .functions button {
+  article .functions button {
     transition: box-shadow 0.2s ease-in-out;
     padding: 16px 22px;
     font-size: 1rem;
@@ -107,10 +115,10 @@ main {
     color: #aaa;
     outline: none;
     margin-left: 10px; }
-    #elements .functions button.highlight {
+    article .functions button.highlight {
       background: #24C7C9;
       color: #fff; }
-    #elements .functions button:hover {
+    article .functions button:hover {
       box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.6); }
 
 /*# sourceMappingURL=panel.css.map */
