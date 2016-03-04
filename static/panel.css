@@ -2,123 +2,225 @@ body {
   padding: 0;
   margin: 0;
   background: #eee;
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Roboto', sans-serif;
+}
 
 body * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 .cf:before,
 .cf:after {
   content: " ";
   /* 1 */
   display: table;
-  /* 2 */ }
+  /* 2 */
+}
 
 .cf:after {
-  clear: both; }
+  clear: both;
+}
 
 main {
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
-  padding: 20px; }
-  main #title {
-    border: none;
-    border-bottom: 2px solid #24C7C9;
-    color: #444;
-    line-height: 1.6em;
-    letter-spacing: 2px;
-    background: none;
-    padding: 5px 0px;
-    width: 100%;
-    outline: none;
-    font-size: 1.3rem; }
+  padding: 20px;
+}
+
+main #title {
+  border: none;
+  border-bottom: 2px solid #64DDBB;
+  color: #444;
+  line-height: 1.6em;
+  letter-spacing: 2px;
+  background: none;
+  padding: 5px 0px;
+  width: 50%;
+  outline: none;
+  font-size: 1.3rem;
+}
 
 .clear:before,
 .clear:after {
   content: "";
-  display: table; }
+  display: table;
+}
 
 .clear:after {
-  clear: both; }
+  clear: both;
+}
+
+article {
+  margin-bottom: 30px;
+}
 
 article input, article button {
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+}
+
 article section {
-  border-left: 0px solid #24C7C9;
+  border-left: 0px solid #64DDBB;
   transition: border .2s ease-in-out;
   border-top: none;
   border-radius: 2px;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
-  margin-bottom: 30px; }
-  article section header {
-    transition: all 0.2s ease-in-out;
-    background: #fff;
-    padding: 20px;
-    min-height: 50px;
-    margin: 0;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center; }
-    article section header div {
-      flex-grow: 1;
-      margin-left: 10px; }
-    article section header input, article section header button {
-      margin: 0;
-      background: none;
-      border: none;
-      outline: none; }
-    article section header input {
-      font-size: 0.9rem;
-      background: #eee;
-      padding: 5px;
-      border-radius: 2px;
-      margin-left: 10px; }
-    article section header button {
-      color: #aaa;
-      cursor: pointer; }
-    article section header .dropdown {
-      transition: all .2s ease-in-out;
-      color: #24C7C9; }
-  article section.active {
-    border-left: 5px solid #24C7C9; }
-    article section.active .dropdown {
-      transform: scaleY(-1); }
-  article section button.remove {
-    float: right; }
-  article section textarea {
-    display: block;
-    padding: 20px;
-    width: 100%;
-    resize: none;
-    border: none;
-    border-top: 1px solid #ccc; }
-    article section textarea:focus {
-      outline: none; }
-article .functions {
-  float: right; }
-  article .functions form {
-    display: inline-block; }
-  article .functions form textarea {
-    display: none; }
-  article .functions button {
-    transition: box-shadow 0.2s ease-in-out;
-    padding: 16px 22px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 2px;
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
-    background: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    color: #aaa;
-    outline: none;
-    margin-left: 10px; }
-    article .functions button.highlight {
-      background: #24C7C9;
-      color: #fff; }
-    article .functions button:hover {
-      box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.6); }
+  margin-bottom: 30px;
+}
 
-/*# sourceMappingURL=panel.css.map */
+article section header {
+  transition: all 0.2s ease-in-out;
+  background: #fff;
+  padding: 20px;
+  min-height: 50px;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+article section header div {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+article section header input, article section header button {
+  margin: 0;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+article section header input {
+  font-size: 0.9rem;
+  background: #eee;
+  padding: 5px;
+  border-radius: 2px;
+  margin-left: 10px;
+}
+
+article section header button {
+  color: #aaa;
+  cursor: pointer;
+}
+
+article section header .dropdown {
+  transition: all .2s ease-in-out;
+  color: #64DDBB;
+}
+
+article section.active {
+  border-left: 5px solid #64DDBB;
+}
+
+article section.active .dropdown {
+  transform: scaleY(-1);
+}
+
+article section button.remove {
+  float: right;
+}
+
+article section textarea {
+  display: block;
+  padding: 20px;
+  width: 100%;
+  resize: none;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+article section textarea:focus {
+  outline: none;
+}
+
+article .functions {
+  float: right;
+}
+
+article .functions form {
+  display: inline-block;
+}
+
+article .functions form textarea {
+  display: none;
+}
+
+article .functions button {
+  transition: box-shadow 0.2s ease-in-out;
+  padding: 16px 22px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+  background: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  color: #aaa;
+  outline: none;
+  margin-left: 10px;
+}
+
+article .functions button.highlight {
+  background: #64DDBB;
+  color: #fff;
+}
+
+article .functions button:hover {
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.6);
+}
+
+article h1 {
+  display: block;
+  width: 100%;
+  color: #222;
+  font-weight: normal;
+  line-height: 30px;
+  letter-spacing: 1px;
+}
+
+button#submit {
+  transition: box-shadow 0.2s ease-in-out;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+  background: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  color: #64DDBB;
+  outline: none;
+  margin-left: 10px;
+  float: right;
+}
+
+button#submit.highlight {
+  background: #64DDBB;
+  color: #fff;
+}
+
+button#submit:hover {
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.6);
+}
+
+button.add-item {
+  transition: box-shadow 0.2s ease-in-out;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  display: block;
+  background: #64DDBB;
+  color: #fff;
+  width: 45px;
+  height: 45px;
+  max-width: 100%;
+  border: none;
+  border-radius: 50%;
+  margin: 0 auto;
+  outline: none;
+}
+
+button.add-item:hover {
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.6);
+}

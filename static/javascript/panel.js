@@ -18,7 +18,7 @@ var pageItems = new Vue({
     addItem: function() {
       this.content.push({
         open: false,
-        tag: '',
+        tag: 'p',
         class: '',
         id: '',
         content: ''
@@ -51,8 +51,11 @@ var pageItems = new Vue({
     },
     submit: function() {
       console.log('test');
-      $.post('/admin/create', JSON.stringify(this.$data));
-      window.location = "/admin";
+      if (this.pageName != '') {
+        this.meta = metaItems.meta;
+        $.post('/admin/create', JSON.stringify(this.$data));
+        window.location = "/admin";
+      }
     }
   }
 
@@ -96,5 +99,3 @@ var metaItems = new Vue({
   }
 
 });
-
-
