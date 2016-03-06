@@ -1,5 +1,25 @@
 
 
+$(document).ready(function () {
+  $("#nav").click(function () {
+    if (!$("#nav").hasClass("active")) {
+      $(this).toggleClass("active");
+    }
+  });
+
+
+  $("#main").click(function () {
+    if ($("#nav").hasClass("active")) {
+      $("#nav").toggleClass("active");
+    }
+  });
+
+  $(".navdrop").click(function () {
+    $(this).siblings("ul").toggleClass("active");
+  })
+});
+
+
 var pageItems = new Vue({
 
   el: '#elements',

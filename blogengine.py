@@ -76,15 +76,17 @@ def createPage():
         checkPage = template.createPage(pageDict)
         if checkPage != 'success':
             return checkPage
-        return redirect(url_for('adminLogin'))
+        return redirect(url_for('admin'))
     else:
         return 'You should not be here!'
 
 @app.route('/admin', methods=['POST', 'GET'])
-def adminLogin():
+def admin():
 
     if checkCredentials(session):
-        return render_template('panel.html')
+        pages = json.loads(apiGetPages())
+
+        return render_template('panel.html', pages=pages)
     else:
         return redirect(url_for('logout'))
 
@@ -95,7 +97,7 @@ def login():
         if checkPassword(request.form['password']):
             session['logged_in'] = True
             session['login_date'] = datetime.datetime.now()
-            return redirect(url_for('adminLogin'))
+            return redirect(url_for('admin'))
     return render_template('adminLogin.html')
 
 @app.route('/logout', methods=['GET'])

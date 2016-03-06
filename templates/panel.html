@@ -12,7 +12,33 @@
 </head>
 <body>
 
-<main>
+<nav id="nav" class="active">
+        <h2>Admin<span>Panel</span></h2>
+        <ul >
+            <li>Home</li>
+            <li>
+                <span class="navdrop">Pages</span>
+                <ul>
+                    {% for page in pages %}
+                        <li>{{ page }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+
+            <li>Help</li>
+
+
+
+
+        </ul>
+        <i class="fa fa-caret-right fa-lg"></i>
+
+</nav>
+
+<main id="main">
+    
+    
+
 
     {% raw %}
     <article id="elements" class="clear">
