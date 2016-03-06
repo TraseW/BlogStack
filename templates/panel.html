@@ -10,29 +10,23 @@
     <script src="http://cdn.jsdelivr.net/vue/1.0.16/vue.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.autosize/3.0.15/autosize.min.js"></script>
 </head>
-<body>
+<body id="body">
 
 <nav id="nav" class="active">
         <h2>Admin<span>Panel</span></h2>
         <ul >
-            <li>Home</li>
+            <li><a href="/">Home</a></li>
             <li>
                 <span class="navdrop">Pages</span>
                 <ul>
                     {% for page in pages %}
-                        <li>{{ page }}</li>
+                        <li class="page-link">{{ page }}</li>
                     {% endfor %}
                 </ul>
             </li>
-
             <li>Help</li>
-
-
-
-
         </ul>
         <i class="fa fa-caret-right fa-lg"></i>
-
 </nav>
 
 <main id="main">

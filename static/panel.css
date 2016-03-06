@@ -23,8 +23,8 @@ nav {
   background: #222;
   height: 100%;
   color: #efefef;
-  padding: 15px;
-  transform: translateX(-185px);
+  padding: 20px;
+  transform: translateX(-180px);
   transition: all .2s ease-in-out;
   width: 200px; }
   nav h2 {
@@ -33,7 +33,7 @@ nav {
     line-height: 1.6em;
     letter-spacing: 1px; }
     nav h2 span {
-      color: #64DDBB;
+      color: #7CEECE;
       font-weight: 300; }
 
 nav.active {
@@ -42,12 +42,13 @@ nav.active {
 nav i {
   position: absolute;
   top: 50%;
-  left: 185px;
-  width: 15px;
+  left: 180px;
+  width: 20px;
   display: block;
   text-align: center;
   transition: all .2s .4s ease-in-out;
-  transform: translateY(-50%); }
+  transform: translateY(-50%);
+  cursor: pointer; }
 
 nav.active i {
   transform: scaleX(-1) translateY(-50%); }
@@ -63,6 +64,9 @@ nav ul {
   nav ul li {
     padding: 10px 0;
     cursor: pointer; }
+    nav ul li a {
+      text-decoration: none;
+      color: inherit; }
     nav ul li ul {
       overflow: hidden;
       height: 0;
@@ -70,6 +74,10 @@ nav ul {
       padding-left: 10px;
       transition: all .2s ease-in-out;
       opacity: 0; }
+      nav ul li ul li {
+        transition: all .2s ease-in-out; }
+        nav ul li ul li:hover {
+          color: #7CEECE; }
     nav ul li ul.active {
       padding-top: 15px;
       height: auto;
@@ -82,10 +90,10 @@ main {
   padding: 20px;
   transition: all .2s ease-in-out;
   height: 100vh;
-  padding-left: 35px; }
+  padding-left: 40px; }
   main #title {
     border: none;
-    border-bottom: 2px solid #64DDBB;
+    border-bottom: 2px solid #7CEECE;
     color: #444;
     line-height: 1.6em;
     letter-spacing: 2px;
@@ -108,7 +116,7 @@ article {
   article input, article button {
     margin-bottom: 20px; }
   article section {
-    border-left: 0px solid #64DDBB;
+    border-left: 0px solid #7CEECE;
     transition: border .2s ease-in-out;
     border-top: none;
     border-radius: 2px;
@@ -143,9 +151,9 @@ article {
         cursor: pointer; }
       article section header .dropdown {
         transition: all .2s ease-in-out;
-        color: #64DDBB; }
+        color: #7CEECE; }
     article section.active {
-      border-left: 5px solid #64DDBB; }
+      border-left: 5px solid #7CEECE; }
       article section.active .dropdown {
         transform: scaleY(-1); }
     article section button.remove {
@@ -179,7 +187,7 @@ article {
       outline: none;
       margin-left: 10px; }
       article .functions button.highlight {
-        background: #64DDBB;
+        background: #7CEECE;
         color: #fff; }
       article .functions button:hover {
         box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.6); }
@@ -202,12 +210,12 @@ button#submit {
   background: #fff;
   font-weight: bold;
   cursor: pointer;
-  color: #64DDBB;
+  color: #7CEECE;
   outline: none;
   margin-left: 10px;
   float: right; }
   button#submit.highlight {
-    background: #64DDBB;
+    background: #7CEECE;
     color: #fff; }
   button#submit:hover {
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.6); }
@@ -217,7 +225,7 @@ button.add-item {
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
   cursor: pointer;
   display: block;
-  background: #64DDBB;
+  background: #7CEECE;
   color: #fff;
   width: 45px;
   height: 45px;

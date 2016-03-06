@@ -4,16 +4,25 @@ import pickle, os, ast
 
 def createPage(info):
 
-    print(info['pageName'])
+
     path = os.path.join(pageLocation, info['pageName'])
-    content = {'content': info['content'], 'meta': info['meta']}
+
+    written = {}
     checkPath = os.path.abspath(path)
     if ".." in path:
         return 'Not Allowed'
     #path = list(pageInfo.keys())[0] + '.txt'
     with open(path, 'wb') as f:
-        pickle.dump(content, f)
+        pickle.dump(info, f)
     return 'success'
+
+def deletePage(name):
+    path = os.path.join(pageLocation, name)
+    try:
+        os.remove(path)
+        return 'success'
+    except:
+        return 'failed'
 
 def getPage(name):
     path = os.path.join(pageLocation, name)

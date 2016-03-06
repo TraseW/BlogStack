@@ -50,7 +50,7 @@ def getPage(name):
 @app.route('/api/pages/<name>/meta')
 def apiGetPage(name):
     content = template.getPage(name)
-    print(content)
+
     return json.dumps(content)
 
 @app.route('/api/pages/<name>/meta/<tag>')
@@ -63,22 +63,38 @@ def apiGetTag(name, tag):
 @app.route('/api/pages')
 def apiGetPages():
 
+    try:
+        os.listdir(pageLocation)
+    except:
+
+        return '{}'
+
     return  json.dumps(os.listdir(pageLocation))
 
 
 @app.route('/admin/create', methods=['POST', 'GET'])
 def createPage():
+    if not checkCredentials(session):
+        return redirect(url_for('login'))
     if (request.method == 'POST'):
         r = list(dict(request.form).keys())[0]
         pageDict = json.loads(str(r))
-        print('test')
-        print(pageDict)
+
         checkPage = template.createPage(pageDict)
         if checkPage != 'success':
             return checkPage
         return redirect(url_for('admin'))
     else:
         return 'You should not be here!'
+
+@app.route('/admin/delete/<page>')
+def deletePage(page):
+    if not checkCredentials(session):
+        return redirect(url_for('login'))
+    return template.deletePage(page)
+
+
+
 
 @app.route('/admin', methods=['POST', 'GET'])
 def admin():

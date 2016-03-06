@@ -1,4 +1,13 @@
+function loadPage(page) {
 
+  $.get('/api/pages/' + page.html() + '/meta', function (data) {
+    var response = JSON.parse(data);
+    pageItems.$data = response;
+
+    metaItems.meta = response.meta;
+  });
+
+}
 
 $(document).ready(function () {
   $("#nav").click(function () {
@@ -8,6 +17,16 @@ $(document).ready(function () {
   });
 
 
+  $(document).click(function (event) {
+
+    if ($("#nav").hasClass("active")) {
+      console.log(event.target);
+      if (event.target.id == "body") {
+        $("#nav").toggleClass("active");
+      }
+    }
+  });
+
   $("#main").click(function () {
     if ($("#nav").hasClass("active")) {
       $("#nav").toggleClass("active");
@@ -16,7 +35,12 @@ $(document).ready(function () {
 
   $(".navdrop").click(function () {
     $(this).siblings("ul").toggleClass("active");
-  })
+  });
+
+  $(".page-link").click(function () {
+
+    loadPage($(this));
+  });
 });
 
 

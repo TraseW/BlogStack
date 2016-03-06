@@ -1,6 +1,9 @@
 $highlight: #64DDBB;
+$highlight: #7CEECE;
 
 $navwidth: 200px;
+
+$navtab: 20px;
 
 body {
   padding: 0;
@@ -9,6 +12,8 @@ body {
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
 }
+
+
 
 body * {
   box-sizing: border-box;
@@ -31,9 +36,9 @@ nav {
   background: #222;
   height: 100%;
   color: #efefef;
-  padding: 15px;
+  padding: $navtab;
 
-  transform: translateX(-($navwidth - 15));
+  transform: translateX(-($navwidth - $navtab));
   transition: all .2s ease-in-out;
   width: $navwidth;
 
@@ -57,12 +62,13 @@ nav.active {
 nav i {
   position: absolute;
   top: 50%;
-  left: ($navwidth - 15);
-  width: 15px;
+  left: ($navwidth - $navtab);
+  width: $navtab;
   display: block;
   text-align: center;
   transition: all .2s .4s ease-in-out;
   transform: translateY(-50%);
+  cursor: pointer;
 }
 
 nav.active i {
@@ -84,6 +90,13 @@ nav ul {
     padding: 10px 0;
     cursor: pointer;
 
+    a {
+      text-decoration: none;
+      color: inherit;
+
+    }
+
+
     ul {
       overflow: hidden;
       height: 0;
@@ -91,6 +104,14 @@ nav ul {
       padding-left: 10px;
       transition: all .2s ease-in-out;
       opacity: 0;
+
+      li {
+        transition: all .2s ease-in-out;
+
+        &:hover {
+          color: $highlight;
+        }
+      }
     }
 
     ul.active {
@@ -111,7 +132,7 @@ main {
   padding: 20px;
   transition: all .2s ease-in-out;
   height: 100vh;
-  padding-left: 35px;
+  padding-left: ($navtab + 20);
 
 
   #title {
