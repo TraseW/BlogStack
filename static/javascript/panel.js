@@ -1,6 +1,6 @@
 function loadPage(page) {
 
-  $.get('/api/pages/' + page.html() + '/meta', function (data) {
+  $.get('/api/pages/' + page + '/meta', function (data) {
     var response = JSON.parse(data);
     pageItems.$data = response;
 
@@ -39,7 +39,12 @@ $(document).ready(function () {
 
   $(".page-link").click(function () {
 
-    loadPage($(this));
+    loadPage($(this).html());
+  });
+
+  $("#delete").click(function () {
+    $.get("/admin/delete/" + pageItems.pageName);
+    window.location = '/admin';
   });
 });
 
@@ -98,7 +103,7 @@ var pageItems = new Vue({
       if (this.pageName != '') {
         this.meta = metaItems.meta;
         $.post('/admin/create', JSON.stringify(this.$data));
-        window.location = "/admin";
+        loadPage(pageItems.pageName);
       }
     }
   }
@@ -133,12 +138,6 @@ var metaItems = new Vue({
       if (this.meta[index].open) {
         autosize($('textarea'));
       }
-    },
-    submit: function() {
-      console.log('test');
-      pageItems.meta = this.meta;
-      $.post('/admin/create', JSON.stringify(pageItems.$data));
-      window.location = "/admin";
     }
   }
 

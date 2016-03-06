@@ -73,6 +73,7 @@ nav i {
 
 nav.active i {
   transform: scaleX(-1) translateY(-50%);
+  cursor: auto;
 
 }
 
@@ -299,7 +300,7 @@ article h1 {
   letter-spacing: 1px;
 }
 
-button#submit {
+button#submit, #delete {
   transition: box-shadow 0.2s ease-in-out;
   padding: 12px 20px;
   font-size: 1rem;
@@ -322,6 +323,13 @@ button#submit {
   &:hover {
     box-shadow: 0 4px 10px 0 rgba(#000, 0.6);
   }
+
+
+}
+
+button#delete {
+  background: #C82647;
+  color: #fff;
 }
 
 button.add-item {

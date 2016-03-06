@@ -8,7 +8,7 @@
             {{ block['content'] }}
         </{{ block['tag'] }}>
         {% else %}
-            <{{ block['tag'] }} class="{{ block['class'] }}" id="{{ block['id'] }}" src="{{ block['src']|safe }}">
+            <{{ block['tag'] }} class="{{ block['class'] }}" id="{{ block['id'] }}" src="{{ block['content']|safe }}">
         {% endif %}
     {% endfor %}
 {% endblock %}

@@ -51,7 +51,8 @@ nav i {
   cursor: pointer; }
 
 nav.active i {
-  transform: scaleX(-1) translateY(-50%); }
+  transform: scaleX(-1) translateY(-50%);
+  cursor: auto; }
 
 nav.active ~ main {
   transform: translateX(200px);
@@ -200,7 +201,7 @@ article h1 {
   line-height: 30px;
   letter-spacing: 1px; }
 
-button#submit {
+button#submit, #delete {
   transition: box-shadow 0.2s ease-in-out;
   padding: 12px 20px;
   font-size: 1rem;
@@ -214,11 +215,15 @@ button#submit {
   outline: none;
   margin-left: 10px;
   float: right; }
-  button#submit.highlight {
+  button#submit.highlight, #delete.highlight {
     background: #7CEECE;
     color: #fff; }
-  button#submit:hover {
+  button#submit:hover, #delete:hover {
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.6); }
+
+button#delete {
+  background: #C82647;
+  color: #fff; }
 
 button.add-item {
   transition: box-shadow 0.2s ease-in-out;

@@ -12,7 +12,7 @@
 </head>
 <body id="body">
 
-<nav id="nav" class="active">
+<nav id="nav" class="">
         <h2>Admin<span>Panel</span></h2>
         <ul >
             <li><a href="/">Home</a></li>
@@ -37,9 +37,13 @@
     {% raw %}
     <article id="elements" class="clear">
 
-
         <input id="title" v-model="pageName" type="text" placeholder="Page Name">
+
+
+
         <button v-on:click="submit" id="submit">Submit</button>
+
+        <button v-on:click="delete" id="delete">Delete</button>
 
         <h1>Page Elements</h1>
 
