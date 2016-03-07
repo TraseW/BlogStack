@@ -16,7 +16,7 @@ pageLocation = os.path.join(os.path.abspath(os.path.join(app.static_folder, '..'
 import template
 from admin import checkPassword
 
-app.secret_key= 'test'
+app.secret_key= os.urandom(24)
 
 
 def checkCredentials(sessionInfo):
