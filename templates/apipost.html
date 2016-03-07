@@ -1,7 +1,4 @@
-{% extends 'nav.html' %}
-
-{% block content %}
-    <section id="content">
+<section id="content">
         {% for block in post %}
             {% if block['tag'] != 'img' %}
             <{{ block['tag'] }} class="{{ block['class'] }}" id="{{ block['id'] }}">
@@ -11,5 +8,4 @@
                 <{{ block['tag'] }} class="{{ block['class'] }}" id="{{ block['id'] }}" src="{{ block['content']|safe }}">
             {% endif %}
         {% endfor %}
-    </section>
-{% endblock %}
+</section>

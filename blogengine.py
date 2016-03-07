@@ -47,8 +47,15 @@ def getPage(name):
     print(content['content'])
     return render_template('post.html', post=content['content'])
 
-@app.route('/api/pages/<name>/meta')
+@app.route('/api/pages/<name>')
 def apiGetPage(name):
+    content = template.getPage(name)
+    print('here')
+    print(content['content'])
+    return render_template('apipost.html', post=content['content'])
+
+@app.route('/api/pages/<name>/meta')
+def apiGetPageMeta(name):
     content = template.getPage(name)
 
     return json.dumps(content)
