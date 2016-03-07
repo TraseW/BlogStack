@@ -9,6 +9,12 @@ function loadPage(page) {
 
 }
 
+function showModal(id) {
+  $('#' + id).addClass('active');
+}
+
+
+
 $(document).ready(function () {
   $("#nav").click(function () {
     if (!$("#nav").hasClass("active")) {
@@ -42,10 +48,18 @@ $(document).ready(function () {
     loadPage($(this).html());
   });
 
-  $("#delete").click(function () {
+
+  $('.modal').click(function(event) {
+  if (event.target.id == 'delete-modal') {
+
+    $(this).removeClass('active');
     $.get("/admin/delete/" + pageItems.pageName);
     window.location = '/admin';
-  });
+  }
+  else if (event.target.id == 'cancel') {
+    $(this).removeClass('active');
+  }
+});
 });
 
 

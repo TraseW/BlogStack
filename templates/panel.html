@@ -12,6 +12,13 @@
 </head>
 <body id="body">
 
+<div class="modal" id="delete-confirmation">
+  <h1>Delete Page</h1>
+  <p>Are you sure that you would like to delete this page?</p>
+  <button id="delete-modal">Delete</button>
+  <button id="cancel">Cancel</button>
+</div>
+
 <nav id="nav" class="">
         <h2>Admin<span>Panel</span></h2>
         <ul >
@@ -43,7 +50,7 @@
 
         <button v-on:click="submit" id="submit">Submit</button>
 
-        <button v-on:click="delete" id="delete">Delete</button>
+        <button onclick="showModal('delete-confirmation')" id="delete">Delete</button>
 
         <h1>Page Elements</h1>
 
@@ -94,6 +101,8 @@
 </main>
 
 <script src="{{ url_for('static', filename="javascript/panel.js") }}"></script>
+
+
 
 </body>
 </html>

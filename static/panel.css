@@ -242,4 +242,51 @@ button.add-item {
   button.add-item:hover {
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.6); }
 
+.modal {
+  transition: opacity 0.2s ease-in;
+  opacity: 0;
+  background: #fff;
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  padding: 30px;
+  max-width: 300px;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+  pointer-events: none; }
+  .modal h1 {
+    color: #222;
+    margin-top: 0; }
+  .modal p {
+    color: #333; }
+  .modal button {
+    float: right;
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    padding: 10px 15px;
+    border-radius: 2px;
+    color: #333;
+    cursor: pointer; }
+    .modal button#delete-modal {
+      background: #C82647;
+      color: #fff; }
+  .modal.active {
+    opacity: 100;
+    pointer-events: initial; }
+  .modal:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1;
+    pointer-events: none; }
+
 /*# sourceMappingURL=panel.css.map */
