@@ -118,6 +118,7 @@ var pageItems = new Vue({
         this.meta = metaItems.meta;
         $.post('/admin/create', JSON.stringify(this.$data));
         loadPage(pageItems.pageName);
+        window.location = '/admin';
       }
     }
   }

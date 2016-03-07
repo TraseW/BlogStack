@@ -33,7 +33,7 @@ nav {
     line-height: 1.6em;
     letter-spacing: 1px; }
     nav h2 span {
-      color: #7CEECE;
+      color: #1DABB8;
       font-weight: 300; }
 
 nav.active {
@@ -78,7 +78,7 @@ nav ul {
       nav ul li ul li {
         transition: all .2s ease-in-out; }
         nav ul li ul li:hover {
-          color: #7CEECE; }
+          color: #1DABB8; }
     nav ul li ul.active {
       padding-top: 15px;
       height: auto;
@@ -94,7 +94,7 @@ main {
   padding-left: 40px; }
   main #title {
     border: none;
-    border-bottom: 2px solid #7CEECE;
+    border-bottom: 2px solid #1DABB8;
     color: #444;
     line-height: 1.6em;
     letter-spacing: 2px;
@@ -117,7 +117,7 @@ article {
   article input, article button {
     margin-bottom: 20px; }
   article section {
-    border-left: 0px solid #7CEECE;
+    border-left: 0px solid #1DABB8;
     transition: border .2s ease-in-out;
     border-top: none;
     border-radius: 2px;
@@ -152,9 +152,9 @@ article {
         cursor: pointer; }
       article section header .dropdown {
         transition: all .2s ease-in-out;
-        color: #7CEECE; }
+        color: #1DABB8; }
     article section.active {
-      border-left: 5px solid #7CEECE; }
+      border-left: 5px solid #1DABB8; }
       article section.active .dropdown {
         transform: scaleY(-1); }
     article section button.remove {
@@ -188,7 +188,7 @@ article {
       outline: none;
       margin-left: 10px; }
       article .functions button.highlight {
-        background: #7CEECE;
+        background: #1DABB8;
         color: #fff; }
       article .functions button:hover {
         box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.6); }
@@ -211,12 +211,12 @@ button#submit, #delete {
   background: #fff;
   font-weight: bold;
   cursor: pointer;
-  color: #7CEECE;
+  color: #1DABB8;
   outline: none;
   margin-left: 10px;
   float: right; }
   button#submit.highlight, #delete.highlight {
-    background: #7CEECE;
+    background: #1DABB8;
     color: #fff; }
   button#submit:hover, #delete:hover {
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.6); }
@@ -230,7 +230,7 @@ button.add-item {
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
   cursor: pointer;
   display: block;
-  background: #7CEECE;
+  background: #1DABB8;
   color: #fff;
   width: 45px;
   height: 45px;

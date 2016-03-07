@@ -106,6 +106,10 @@ def admin():
     else:
         return redirect(url_for('logout'))
 
+@app.route('/admin/help')
+def adminHelp():
+    return render_template('help.html')
+
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     print(request.method)
