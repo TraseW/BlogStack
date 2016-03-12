@@ -2,7 +2,7 @@
 
 from flask import Flask, render_template, url_for, request, redirect, flash
 from flask import session
-import os, datetime, json, inspect
+import os, datetime, json
 
 
 
@@ -33,25 +33,25 @@ def checkCredentials(sessionInfo):
     except:
         return False
 
-
+def getPython(info):
+    return json.loads(info)
 
 @app.route('/')
 def hello_world():
 
-    return render_template('nav.html', f=globals())
+    return render_template('landing.html', f=globals(), conv=getPython)
 
 
 @app.route('/pages/<name>')
 def getPage(name):
     content = template.getPage(name)
-    return render_template('post.html', post=content['content'], f=globals())
+    return render_template('post.html', post=content['content'], f=globals(), conv=getPython)
 
 @app.route('/api/pages/<name>')
 def apiGetPage(name):
     content = template.getPage(name)
-    print('here')
-    print(content['content'])
-    return render_template('apipost.html', post=content['content'], f=globals())
+
+    return render_template('apipost.html', post=content['content'], f=globals(), conv=getPython)
 
 @app.route('/api/pages/<name>/meta')
 def apiGetPageMeta(name):
@@ -61,9 +61,8 @@ def apiGetPageMeta(name):
 
 @app.route('/api/pages/<name>/meta/<tag>')
 def apiGetTag(name, tag):
-    page = template.getPage(name)[name]
-    meta = page['meta']
-    out = meta[tag]
+    page = template.getMeta(name)
+    out = page[tag]
     return out
 
 @app.route('/api/pages')
@@ -118,7 +117,7 @@ def adminHelp():
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
-    print(request.method)
+
     if (request.method == 'POST'):
         if checkPassword(request.form['password']):
             session['logged_in'] = True

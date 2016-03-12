@@ -32,7 +32,7 @@ main = \
                 }
         }
     }
-print(json.dumps(main))
+
 """
 /admin/panel
 """

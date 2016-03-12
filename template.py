@@ -30,3 +30,15 @@ def getPage(name):
     with open(path, 'rb') as f:
         out = pickle.load(f)
         return out
+
+def getMeta(name):
+    path = os.path.join(pageLocation, name)
+
+    with open(path, 'rb') as f:
+        out = pickle.load(f)['meta']
+
+        tags = {}
+        for i in out:
+            tags[i['title']] = i['value']
+
+        return tags
