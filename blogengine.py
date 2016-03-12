@@ -2,7 +2,7 @@
 
 from flask import Flask, render_template, url_for, request, redirect, flash
 from flask import session
-import os, datetime, json
+import os, datetime, json, inspect
 
 
 
@@ -19,6 +19,8 @@ from admin import checkPassword
 app.secret_key= os.urandom(24)
 
 
+
+
 def checkCredentials(sessionInfo):
     try:
         timeDiff = (datetime.datetime.now() - sessionInfo['login_date']).days
@@ -33,26 +35,23 @@ def checkCredentials(sessionInfo):
 
 
 
-
 @app.route('/')
 def hello_world():
 
-    return render_template('nav.html')
+    return render_template('nav.html', f=globals())
 
 
 @app.route('/pages/<name>')
 def getPage(name):
     content = template.getPage(name)
-    print('here')
-    print(content['content'])
-    return render_template('post.html', post=content['content'])
+    return render_template('post.html', post=content['content'], f=globals())
 
 @app.route('/api/pages/<name>')
 def apiGetPage(name):
     content = template.getPage(name)
     print('here')
     print(content['content'])
-    return render_template('apipost.html', post=content['content'])
+    return render_template('apipost.html', post=content['content'], f=globals())
 
 @app.route('/api/pages/<name>/meta')
 def apiGetPageMeta(name):
@@ -131,6 +130,7 @@ def login():
 def logout():
     session.pop('logged_in', None)
     return redirect(url_for('login'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
