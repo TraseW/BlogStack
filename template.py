@@ -26,10 +26,12 @@ def deletePage(name):
 
 def getPage(name):
     path = os.path.join(pageLocation, name)
-
-    with open(path, 'rb') as f:
-        out = pickle.load(f)
-        return out
+    try:
+        with open(path, 'rb') as f:
+            out = pickle.load(f)
+            return out
+    except:
+        return {'content': ''}
 
 def getMeta(name):
     path = os.path.join(pageLocation, name)
