@@ -2,7 +2,7 @@
 
 from flask import Flask, render_template, url_for, request, redirect, flash
 from flask import session
-import os, datetime, json
+import os, datetime, json, re
 
 
 
@@ -35,6 +35,22 @@ def checkCredentials(sessionInfo):
 
 def getPython(info):
     return json.loads(info)
+
+def replacelink(text):
+    print(text.group(0))
+    info = text.group(0).split(":")
+    link = '<a href="{}">{}</a>'.format(info[1][:len(info[1])-1], info[0][1:])
+    print(link)
+    return link
+
+def convertLink(text):
+
+    temp = re.sub(r'\([^/][^:]+:[^)]+\)', replacelink, text)
+    while(text != temp):
+        text = temp
+        temp = re.sub(r'\([^/][^:]+:[^)]+\)', replacelink, temp)
+
+    return text
 
 @app.route('/')
 def hello_world():
@@ -77,12 +93,16 @@ def apiGetPages():
     return  json.dumps(os.listdir(pageLocation))
 
 
+
 @app.route('/admin/create', methods=['POST', 'GET'])
 def createPage():
     if not checkCredentials(session):
         return redirect(url_for('login'))
     if (request.method == 'POST'):
         r = list(dict(request.form).keys())[0]
+
+
+
         pageDict = json.loads(str(r))
 
         checkPage = template.createPage(pageDict)

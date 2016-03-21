@@ -5,7 +5,7 @@
         {% for block in post %}
             {% if block['tag'] != 'img' %}
             <{{ block['tag'] }} class="{{ block['class'] }}" id="{{ block['id'] }}">
-                {{ block['content'] }}
+                {{ f['convertLink'](block['content'])|safe }}
             </{{ block['tag'] }}>
             {% else %}
                 <{{ block['tag'] }} class="{{ block['class'] }}" id="{{ block['id'] }}" src="{{ block['content']|safe }}">

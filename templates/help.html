@@ -35,6 +35,9 @@
             access to the content of whatever is stored inside the tag.
         </p>
         <p>
+            To specify a link use this notation: (text for the link:www.theactuallink.com)
+        </p>
+        <p>
             A note about image tags, they're specified in the same way, and the content of the tag on the input page, is used
             as the source of the image tag itself.
         </p>
@@ -44,6 +47,40 @@
             extra information like date of creation, author, a short description of the page. All meta attributes are exposed
             to an api where you can request them using javascript.
         </p>
+
+        <h3>Creating pages</h3>
+        <p>
+            The actual creation of the landing page, and the post pages themselves is done through the jinja system. When creating
+            the pages, a dictionary 'f' is exposed that contains all functions that are allowed to be used, an example:
+        </p>
+
+        <p>f['convertLink']('(text:link)')</p>
+
+        <p>
+            This would return the string an anchor tag with the link notation replaced with actual links, for all link notations
+            in the entire string. All of the api functions are also exposed this way. Any API function that returns a JSON
+            object, can be converted to a python usable format using the 'conv' function, which is directly exposed as conv(JSON).
+        </p>
+
+        <h1>API Functions</h1>
+
+        <h3>apiGetPage()</h3>
+        <p>This function returns a the html of the page without extending any other pages</p>
+        <p>URL: /api/pages/(page)</p>
+
+        <h3>apiGetTag()</h3>
+        <p>This returns directly the value of the requested tag.</p>
+        <p>URL: /api/pages/(page)/meta/(tag)</p>
+
+        <h3>apiGetPageMeta()</h3>
+        <p>Returns the full meta dictionary in the form of a JSON object.</p>
+        <p>URL: /api/pages/(page)/meta</p>
+
+        <h3>apiGetPages()</h3>
+        <p>Returns the full list of pages available.</p>
+        <p>URL: /api/pages</p>
+
+        
     </article>
 
 
