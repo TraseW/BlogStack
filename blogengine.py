@@ -38,17 +38,17 @@ def getPython(info):
 
 def replacelink(text):
     print(text.group(0))
-    info = text.group(0).split(":")
+    info = text.group(0).split(";")
     link = '<a href="{}">{}</a>'.format(info[1][:len(info[1])-1], info[0][1:])
     print(link)
     return link
 
 def convertLink(text):
 
-    temp = re.sub(r'\([^/][^:]+:[^)]+\)', replacelink, text)
+    temp = re.sub(r'\([^/][^;]+;[^)]+\)', replacelink, text)
     while(text != temp):
         text = temp
-        temp = re.sub(r'\([^/][^:]+:[^)]+\)', replacelink, temp)
+        temp = re.sub(r'\([^/][^;]+;[^)]+\)', replacelink, temp)
 
     return text
 
