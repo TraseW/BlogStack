@@ -112,6 +112,9 @@ var pageItems = new Vue({
         autosize($('textarea'));
       }
     },
+    auto: function (index) {
+      autosize($('textarea'));
+    },
     submit: function() {
       console.log('test');
       if (this.pageName != '') {
@@ -147,6 +150,9 @@ var metaItems = new Vue({
     },
     removeMeta: function(index) {
       this.meta.splice(index, 1);
+    },
+    auto: function (index) {
+      autosize($('textarea'));
     },
     dropdownMeta: function(index) {
       this.meta[index].open = !this.meta[index].open;
