@@ -26,7 +26,9 @@ nav {
   padding: 20px;
   transform: translateX(-180px);
   transition: all .2s ease-in-out;
-  width: 200px; }
+  width: 200px;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none; }
   nav h2 {
     margin: 10px 0;
     font-weight: 400;
@@ -35,6 +37,9 @@ nav {
     nav h2 span {
       color: #10aae1;
       font-weight: 300; }
+
+nav::-webkit-scrollbar {
+  width: 0 !important; }
 
 nav.active {
   transform: translateX(0%); }

@@ -55,7 +55,16 @@ nav {
       font-weight: 300;
     }
   }
+
+
+
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
 }
+
+nav::-webkit-scrollbar {
+    width: 0 !important;
+  }
 
 nav.active {
   transform: translateX(0%);
