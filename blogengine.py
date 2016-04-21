@@ -63,6 +63,12 @@ def getPage(name):
     content = template.getPage(name)
     return render_template('post.html', post=content['content'], f=globals(), conv=getPython)
 
+@app.route('/project/<name>')
+def getSet(name):
+
+    return render_template('project/' + name + '.html')
+
+
 @app.route('/api/pages/<name>')
 def apiGetPage(name):
     content = template.getPage(name)
