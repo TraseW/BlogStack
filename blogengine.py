@@ -7,7 +7,7 @@ import os, datetime, json, re
 
 
 
-
+#test
 
 app = Flask(__name__)
 
@@ -16,9 +16,10 @@ pageLocation = os.path.join(os.path.abspath(os.path.join(app.static_folder, '..'
 import template
 from admin import checkPassword
 
+from backends import dyn
 app.secret_key= os.urandom(24)
 
-
+app.register_blueprint(dyn, url_prefix='/dyn')
 
 
 def checkCredentials(sessionInfo):
